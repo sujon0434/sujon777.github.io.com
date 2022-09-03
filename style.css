@@ -1,115 +1,126 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
-.hero{
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/banner.jpg);
+body {
+    font-size: 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), #3551b5);
     background-position: center;
     background-size: cover;
-    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.form-box{
-    width: 380px;
-    height: 480px;
-    position: relative;
-    margin: 10% auto;
-    background: #fff;
-    padding: 5px;
-    overflow: hidden;
+.container {
+    background: black;
+    width: 500px;
+    padding: 35px;
+    border-radius: 20px;
+    margin: 50px auto 0;
+    border-top: 5px solid blue;
+    box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.5);
 }
 
-.button-box{
-    width: 220px;
-    margin: 35px auto;
-    position: relative;
-    box-shadow: 0 0 20px 9px #ff61241f;
-    border-radius: 30px;
-}
-
-.toggle-btn{
-    padding: 10px 30px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-}
-
-#btn{
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 110px;
-    height: 100%;
-    background: linear-gradient(to right, #ff105f, #ffad06);
-    border-radius: 30px;
-    transition: .5s;
-}
-
-.social-icons{
-    margin: 30px auto;
+.container h2 {
+    font-size: 25px;
+    line-height: 25px;
+    padding: 20px;
     text-align: center;
+    border-radius: 10px;
+    background-image: linear-gradient(rgba(0,0,0,0.7), #3551b5), url(bac.jpg);
 }
 
-.social-icons img{
-    width: 30px;
-    margin: 0 12px;
-    box-shadow: 0 0 20px 0 #7f7f7f3d;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.input-group{
-    top: 180px;
-    position: absolute;
-    width: 280px;
-    transition: .5s;
-}
-
-.input-field{
+.input-name {
     width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid #999;
-    outline: none;
-    background: transparent;
+    position: relative;
+    margin: 20px 0 0 20px;
 }
 
-.chech-box{
-    margin: 30px 10px 30px 0;
+input[type=text],
+input[type=number]{
+    padding: 20px;
 }
 
-span{
-    color: #777;
-    font-size: 12px;
-    bottom: 64px;
+.name {
+    width: 90%;
+    padding: 8px 0 8px 40px;
+    border-radius: 15px;
+}
+
+.input-name i {
     position: absolute;
+    font-size: 18px;
+    color: blue;
+    border-radius: 10px;
+    border-right: 1px solid #cccccc;
 }
 
-.submit-btn{
-    width: 85%;
-    padding: 10px 30px;
-    cursor: pointer;
+.button {
+   position: relative;
+   height: 60px;
+   width: 150px;
+   margin: 5px 20px;
+   border-radius: 50px;
+   border: none;
+   outline: none;
+   background: #333;
+   color: #fff;
+   font-size: 15px;
+   letter-spacing: 1px;
+   cursor: pointer;
+}
+
+.button:first-child:hover {
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+}
+
+.button:last-child:hover {
+    background: linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199);
+    background-size: 400%;
+}
+
+.button:first-child:before,
+.button:last-child:before {
+    content: '';
+    position: absolute;
+    background: inherit;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    border-radius: 50px;
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.button:first-child:hover:before,
+.button:last-child:hover:before {
+    opacity: 1;
+    z-index: -1;
+}
+
+.button:hover {
+    z-index: 1;
+    animation: glow 8s linear infinite;
+}
+
+@keyframes glow {
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+
+#msg {
+    color: #61b752;
+    margin-top: 15px;
     display: block;
-    margin: auto;
-    background: linear-gradient(to right, #ff105f, #ffad06);
-    border: 0;
-    outline: none;
-    border-radius: 30px;
-}
-
-#login{
-    left: 50px;
-}
-
-#register{
-    left: 450px;
+    text-align: center;
 }
